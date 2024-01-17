@@ -5,7 +5,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const View = Platform.OS === "web"? ViewWeb : ViewPhone;
 
-export default function Button({ label, theme, choose, onPress   }) {
+export default function Button({ label, theme,choose , onPress   }) {
     if (theme === "primary"){
   return (
     <View style={[styles.buttonContainer, {borderWidth: 4, borderColor: "#3a3e44", borderRadius: 18}] }>
@@ -58,5 +58,5 @@ const styles = StyleSheet.create({
   },
   secolor:{
     fontSize:16,
-  }
+  },
 });

@@ -1,8 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { useState } from 'react';
-import CircleButton from './components/circleButton';
-import IconButton from './components/IconButton';
+import AppOptions from './components/AppOptions';
 import EmojiSticker from './components/EmojiSticker';
 import EmojiPicker from "./components/EmojiPicker";
 
@@ -17,11 +16,6 @@ const PlaceholderImage = require("./assets/imagenes/islandia-turismo.jpg");
 
 // ruta de la imagen con placeholder 
 // ...rest of the import statements remain unchanged
- 
-
-
-
-
 
 export default function App() {
   const [showAppOptions, setShowAppOptions] = useState(false);
@@ -68,13 +62,11 @@ export default function App() {
         {pickedEmoji && <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />}
       </View>
       {showAppOptions ? (
-       <View style={styles.optionsContainer}>
-       <View style={styles.optionsRow}>
-         <IconButton icon="refresh" label="Reset" onPress={onReset} />
-         <CircleButton onPress={onAddSticker} />
-         <IconButton icon="save-alt" label="Save" onPress={onSaveImageAsync} />
-       </View>
-     </View> 
+       <AppOptions
+       onReset={onReset}
+       onAddSticker={onAddSticker}
+       onSaveImageAsync={onSaveImageAsync}
+     /> 
       ) : (
         <View style={styles.footerContainer}>
           <Button theme="primary" label="Choose a photo" onPress={pickImageAsync} />

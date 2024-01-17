@@ -5,7 +5,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const View = Platform.OS === "web"? ViewWeb : ViewPhone;
 
-export default function Button({ label, theme, choose }) {
+export default function Button({ label, theme, choose, onPress   }) {
     if (theme === "primary"){
   return (
     <View style={[styles.buttonContainer, {borderWidth: 4, borderColor: "#3a3e44", borderRadius: 18}] }>
@@ -25,9 +25,9 @@ export default function Button({ label, theme, choose }) {
   );}
   return(
     <View style = {styles.buttonContainer} >
-      <Pressable style = {styles.button} onPress={() => alert("u pressed a button.")} >
+      <Pressable style = {styles.button} onPress={onPress} >
         <Text style = {styles.buttonLabel} > {label} </Text>
-      </Pressable>
+      </Pressable>  
     </View>    
   )
 }
